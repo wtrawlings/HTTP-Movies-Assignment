@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
 import MovieCard from "./MovieCard";
 
 function Movie({ addToSavedList }) {
@@ -33,6 +34,14 @@ function Movie({ addToSavedList }) {
       <div className="save-button" onClick={saveMovie}>
         Save
       </div>
+      <p></p>
+      {/* Add a button in the movie component that routes you 
+      to your new route with the movies's id as the URL param */}
+      <Link to={`/update-movie/${movie.id}`}>
+      <div className="edit-button" >
+        Edit
+      </div>
+      </Link>
     </div>
   );
 }
