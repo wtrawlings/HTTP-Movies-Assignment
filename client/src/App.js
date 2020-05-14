@@ -33,13 +33,12 @@ const App = () => {
         <MovieList movies={movieList} />
       </Route>
 
-      <Route path="/movies/:id">
-        <Movie addToSavedList={addToSavedList} />
-      </Route>
+  <Route path="/movies/:id" render={props => <Movie addToSavedList={addToSavedList} setMovieList={setMovieList} {...props} /> } />
+        {/* render={props => <Movie addToSavedList={addToSavedList} {...props} />
+      </Route> */}
 
-      <Route path="/update-movie/:id">
-        <UpdateMovieForm setMovieList={setMovieList}/>
-      </Route>
+      <Route path="/update-movie/:id" render={props => <UpdateMovieForm setMovieList={setMovieList} {...props} /> } />
+       
     </>
   );
 };
